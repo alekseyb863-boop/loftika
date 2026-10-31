@@ -17,7 +17,7 @@ const arrow = "static size-9 translate-none rounded-none";
 export default function ProductCarousel({ items, title, href = "#" }: { items: Product[]; title: string; href?: string }) {
   return (
     <Carousel opts={{ align: "start", slidesToScroll: "auto" }} aria-label={title}>
-      <div className="mb-4 flex items-center justify-between gap-4 px-4">
+      <div className="mb-4 flex items-center justify-between gap-4 px-4 md:px-8">
         <h2 className="text-xl font-medium tracking-tight md:text-2xl">{title}</h2>
         <div className="flex items-center gap-4">
           <Button asChild variant="link" className="hidden px-0 underline sm:inline-flex">
@@ -44,7 +44,7 @@ export default function ProductCarousel({ items, title, href = "#" }: { items: P
                     className="aspect-square object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </AspectRatio>
-                <CardContent className="px-4 py-3">{p.article}</CardContent>
+                <CardContent className="px-4 py-3 md:px-5">{p.article}</CardContent>
               </Card>
             </a>
           </CarouselItem>

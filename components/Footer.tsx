@@ -25,7 +25,7 @@ export default function Footer() {
   return (
     <footer id="kontakty" className="mt-20">
       <Separator />
-      <div className="grid gap-8 p-4 md:grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-8 p-5 md:grid-cols-2 md:p-8 lg:grid-cols-5">
         <div>
           <h3 className="mb-3 font-medium">Будьте на связи</h3>
           <p className="mb-5 max-w-xs text-muted-foreground">
@@ -51,7 +51,7 @@ export default function Footer() {
       </div>
 
       <Separator />
-      <div className="p-4 text-xs text-muted-foreground">
+      <div className="px-5 py-5 text-xs text-muted-foreground md:px-8">
         © {new Date().getFullYear()} лофтика. Все права защищены.
       </div>
     </footer>

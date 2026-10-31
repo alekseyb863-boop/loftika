@@ -37,7 +37,7 @@ export default function Home() {
               className="aspect-square object-cover object-center"
             />
           </AspectRatio>
-          <div className="flex flex-col justify-end gap-6 px-4 py-8 md:py-12 md:order-1">
+          <div className="flex flex-col justify-end gap-6 px-4 md:px-8 py-8 md:py-12 md:order-1">
             <div>
               <h1 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight">Металлические ножки, опоры и каркасы</h1>
               <p className="text-muted-foreground mt-3 md:text-lg">Новая коллекция — минимализм и лофт</p>
@@ -55,7 +55,7 @@ export default function Home() {
 
         {/* Каталог */}
         <section id="katalog" className="pt-14 md:pt-20">
-          <h2 className="px-4 mb-6 text-xl md:text-2xl font-medium tracking-tight">Каталог</h2>
+          <h2 className="px-4 md:px-8 mb-6 text-xl md:text-2xl font-medium tracking-tight">Каталог</h2>
           <div className="grid md:grid-cols-2">
             {tiles.map((t) => (
               <a key={t.title} href="#" className="group block border-l-0 md:border-l md:first:border-l-0">
@@ -69,7 +69,7 @@ export default function Home() {
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </AspectRatio>
-                  <CardContent className="gap-0 px-4 py-4">
+                  <CardContent className="gap-0 px-4 py-4 md:px-8">
                     <CardTitle className="text-base">{t.title}</CardTitle>
                     <CardDescription className="text-sm">{t.caption}</CardDescription>
                   </CardContent>
@@ -80,7 +80,7 @@ export default function Home() {
         </section>
 
         {/* О магазине */}
-        <section id="o-nas" className="pt-14 md:pt-20 px-4">
+        <section id="o-nas" className="pt-14 md:pt-20 px-4 md:px-8">
           <h2 className="mb-6 text-xl md:text-2xl font-medium tracking-tight">Почему лофтика</h2>
           <Separator />
           <div className="grid gap-8 pt-6 md:grid-cols-3">
