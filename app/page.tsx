@@ -57,7 +57,7 @@ export default function Home() {
 
         {/* Каталог */}
         <section id="katalog" className="pt-14 md:pt-20">
-          <h2 className="px-4 md:px-8 mb-4 text-xl md:text-2xl font-medium tracking-tight">Каталог</h2>
+          <h2 className="px-4 md:px-8 mb-5 text-xl md:text-2xl font-medium tracking-tight">Каталог</h2>
           <div className="grid gap-0.5 md:grid-cols-2">
             {tiles.map((t) => (
               <a key={t.title} href="#" className="group block">

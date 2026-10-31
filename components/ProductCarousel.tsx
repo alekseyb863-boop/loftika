@@ -17,9 +17,9 @@ const arrow = "static size-9 translate-none rounded-none";
 export default function ProductCarousel({ items, title, href = "#" }: { items: Product[]; title: string; href?: string }) {
   return (
     <Carousel opts={{ align: "start", slidesToScroll: "auto" }} aria-label={title}>
-      <div className="mb-4 flex items-center justify-between gap-4 px-4 md:px-8">
+      <div className="mb-5 flex items-center justify-between gap-4 px-4 md:px-8">
         <h2 className="text-xl font-medium tracking-tight md:text-2xl">{title}</h2>
-        <div className="flex items-center gap-4">
+        <div className="-my-2 flex items-center gap-4">
           <Button asChild variant="link" className="hidden px-0 underline sm:inline-flex">
             <a href={href}>Смотреть все</a>
           </Button>
