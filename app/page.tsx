@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="mx-auto w-full max-w-7xl flex-1">
+      <main className="mx-auto w-full max-w-7xl">
         {/* Hero */}
         <section id="novinki" className="grid bg-muted md:grid-cols-2">
           <div className="md:order-2">
