@@ -40,7 +40,7 @@ export function useLogoControls(d: LogoDefaults) {
       fontWeight: { value: d.weight, min: 400, max: 900, step: 100, label: "Жирность" },
       fontSize: { value: d.size, min: 1, max: 6, step: 0.125, pad: 3, label: "Размер (моб.), rem" },
       fontSizeLg: { value: d.sizeLg, min: 1, max: 10, step: 0.125, pad: 3, label: "Размер (деск.), rem" },
-      letterSpacing: { value: d.tracking, min: -0.1, max: 0.3, step: TRACKING_STEP, pad: 3, label: "Интервал, em" },
+      letterSpacing: { value: d.tracking, min: -0.1, max: 0.075, step: TRACKING_STEP, pad: 3, label: "Интервал, em" },
       "Скопировать CSS": button((get) => {
         const css = [
           ".logo {",
