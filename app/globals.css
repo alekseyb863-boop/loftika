@@ -46,7 +46,6 @@
   --logo-size: 1.875rem;
   --logo-size-lg: 3.25rem;
   --logo-weight: 600;
-  --logo-tracking: -0.04em;
 }
 
 .dark {
@@ -141,7 +140,6 @@
   font-size: var(--logo-size);
   line-height: 1;
   font-weight: var(--logo-weight);
-  letter-spacing: var(--logo-tracking);
 }
 
 @media (min-width: 64rem) {

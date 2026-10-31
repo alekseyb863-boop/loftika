@@ -1,4 +1,5 @@
 import { MenuIcon } from "lucide-react";
+import Logo from "@/components/Logo";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -35,9 +36,7 @@ export default function Header() {
       </div>
 
       <div className="px-4 pt-6 pb-4 md:px-8 md:pt-8 md:pb-6">
-        <a href="#" className="logo inline-block" aria-label="лофтика — на главную">
-          лофтика
-        </a>
+        <Logo href="#" className="inline-block" aria-label="лофтика — на главную" />
       </div>
 
       <div className="sticky top-0 z-30 bg-background">
@@ -52,7 +51,9 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left" className="w-72">
               <SheetHeader>
-                <SheetTitle className="logo text-[1.875rem]">лофтика</SheetTitle>
+                <SheetTitle asChild>
+                  <Logo as="span" />
+                </SheetTitle>
                 <SheetDescription className="sr-only">Навигация по сайту</SheetDescription>
               </SheetHeader>
               <nav className="flex flex-col px-4" aria-label="Мобильная навигация">
