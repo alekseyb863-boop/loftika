@@ -43,9 +43,9 @@
      Панель leva (components/LogoControls.tsx) перезаписывает эти переменные
      на лету и читает отсюда стартовые значения.
      --logo-size — мобильные, --logo-size-lg — десктоп (от 1024px). */
-  --logo-size: 1.875rem;
+  --logo-size: 1.75rem;
   --logo-size-lg: 3.25rem;
-  --logo-weight: 600;
+  --logo-weight: 800;
 }
 
 .dark {

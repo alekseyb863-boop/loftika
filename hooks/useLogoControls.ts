@@ -20,8 +20,8 @@ export function readLogoDefaults(): LogoDefaults {
     return Number.isFinite(v) ? v : fallback;
   };
   return {
-    weight: num("--logo-weight", 600),
-    size: num("--logo-size", 1.875),
+    weight: num("--logo-weight", 800),
+    size: num("--logo-size", 1.75),
     sizeLg: num("--logo-size-lg", 3.25),
   };
 }
