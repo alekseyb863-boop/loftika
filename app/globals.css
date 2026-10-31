@@ -122,7 +122,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    @apply leading-normal;
-    font-size: 0.8125rem;
+    @apply text-sm leading-normal;
   }
 }

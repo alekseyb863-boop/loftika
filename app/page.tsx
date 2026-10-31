@@ -71,7 +71,7 @@ export default function Home() {
                   </AspectRatio>
                   <CardContent className="gap-0 px-4 py-4 md:px-8">
                     <CardTitle className="text-base">{t.title}</CardTitle>
-                    <CardDescription className="text-[0.8125rem]">{t.caption}</CardDescription>
+                    <CardDescription className="text-sm">{t.caption}</CardDescription>
                   </CardContent>
                 </Card>
               </a>
