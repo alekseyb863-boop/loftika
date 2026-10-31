@@ -40,7 +40,7 @@ export default function Footer() {
             <ul className="flex flex-col items-start text-muted-foreground">
               {col.links.map((l) => (
                 <li key={l}>
-                  <Button asChild variant="link" size="sm" className="h-auto px-0 py-1 font-normal text-muted-foreground hover:text-foreground">
+                  <Button asChild variant="link" size="sm" className="h-auto justify-start whitespace-normal px-0 py-1 text-left font-normal text-muted-foreground hover:text-foreground">
                     <a href="#">{l}</a>
                   </Button>
                 </li>

@@ -1,5 +1,4 @@
-import { MenuIcon } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { MenuIcon, SearchIcon, ShoppingBagIcon, UserIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -17,7 +16,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Separator } from "@/components/ui/separator";
 import { logoClass } from "@/lib/logo";
 import { cn } from "@/lib/utils";
 
@@ -31,24 +29,51 @@ const nav = [
 
 export default function Header() {
   return (
-    <header>
-      <div className="px-4 pt-6 pb-4 md:px-8 md:pt-8 md:pb-6">
-        <a href="#" className={cn(logoClass, "inline-block")} aria-label="лофтика — на главную">
+    <header className="sticky top-0 z-30 border-b bg-background">
+      <div className="flex h-13 items-center gap-6 px-4 md:px-8">
+        <a href="#" className={cn(logoClass, "shrink-0 -translate-y-1 lg:-translate-y-1.5")} aria-label="лофтика — на главную">
           лофтика
         </a>
-      </div>
 
-      <div className="sticky top-0 z-30 bg-background">
-        <Separator />
-        <div className="flex h-11 items-center justify-between px-4 md:px-8">
-          {/* Мобильное меню */}
+        {/* Десктопная навигация (от lg) — в той же строке справа от лого */}
+        <NavigationMenu className="hidden lg:flex" aria-label="Основная навигация">
+          <NavigationMenuList>
+            {nav.map((item) => (
+              <NavigationMenuItem key={item.href}>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <a href={item.href}>{item.label}</a>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        <div className="ml-auto flex items-center gap-1">
+          <Button asChild variant="ghost" size="icon">
+            <a href="#" aria-label="Поиск">
+              <SearchIcon />
+            </a>
+          </Button>
+          <Button asChild variant="ghost" size="icon">
+            <a href="#" aria-label="Войти">
+              <UserIcon />
+            </a>
+          </Button>
+          <Button asChild variant="ghost">
+            <a href="#" aria-label="Корзина, товаров: 0">
+              <ShoppingBagIcon />
+              <span>(0)</span>
+            </a>
+          </Button>
+
+          {/* Мобильное меню (до lg) */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden" aria-label="Открыть меню">
+              <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Открыть меню">
                 <MenuIcon />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-72">
+            <SheetContent side="right" className="w-72">
               <SheetHeader>
                 <SheetTitle className={logoClass}>лофтика</SheetTitle>
                 <SheetDescription className="sr-only">Навигация по сайту</SheetDescription>
@@ -64,35 +89,7 @@ export default function Header() {
               </nav>
             </SheetContent>
           </Sheet>
-
-          {/* Десктопная навигация */}
-          <NavigationMenu className="hidden md:flex" aria-label="Основная навигация">
-            <NavigationMenuList>
-              {nav.map((item) => (
-                <NavigationMenuItem key={item.href}>
-                  <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <a href={item.href}>{item.label}</a>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-
-          <div className="flex items-center gap-1">
-            <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-              <a href="#">Поиск</a>
-            </Button>
-            <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-              <a href="#">Войти</a>
-            </Button>
-            <Button asChild variant="ghost" size="sm">
-              <a href="#">
-                Корзина <Badge variant="secondary">0</Badge>
-              </a>
-            </Button>
-          </div>
         </div>
-        <Separator />
       </div>
     </header>
   );
