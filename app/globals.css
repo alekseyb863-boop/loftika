@@ -119,6 +119,7 @@
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+    @apply scroll-pt-13 lg:scroll-pt-15;
   }
   body {
     @apply bg-background text-foreground;

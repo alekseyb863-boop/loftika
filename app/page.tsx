@@ -24,19 +24,21 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <main className="mx-auto w-full max-w-7xl flex-1">
         {/* Hero */}
         <section id="novinki" className="grid bg-muted md:grid-cols-2">
-          <AspectRatio ratio={1} className="relative w-full overflow-hidden md:order-2">
+          <div className="md:order-2">
+          <AspectRatio ratio={1} className="overflow-hidden">
             <Image
               src={asset("/images/hero.jpg")}
               alt="Чёрная металлическая стойка для одежды в интерьере"
               fill
               priority
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="aspect-square object-cover object-center"
+              className="object-cover object-center"
             />
           </AspectRatio>
+          </div>
           <div className="flex flex-col justify-end gap-6 px-4 md:px-8 py-8 md:py-12 md:order-1">
             <div>
               <h1 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight">Металлические ножки, опоры и каркасы</h1>

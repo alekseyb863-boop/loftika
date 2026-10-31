@@ -1,4 +1,5 @@
 import { MenuIcon, SearchIcon, ShoppingBagIcon, UserIcon } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -30,7 +31,7 @@ const nav = [
 export default function Header() {
   return (
     <header className="sticky top-0 z-30 border-b bg-background">
-      <div className="flex h-13 lg:h-15 items-center gap-6 px-4 md:px-8">
+      <div className="mx-auto flex h-13 lg:h-15 max-w-7xl items-center gap-6 px-4 md:px-8">
         <a href="#" className={cn(logoClass, "shrink-0 -translate-y-1 lg:-translate-y-1")} aria-label="лофтика — на главную">
           лофтика
         </a>
@@ -59,10 +60,12 @@ export default function Header() {
               <UserIcon className="size-5" />
             </a>
           </Button>
-          <Button asChild variant="ghost">
-            <a href="#" aria-label="Корзина, товаров: 0">
+          <Button asChild variant="ghost" size="icon">
+            <a href="#" aria-label="Корзина, товаров: 0" className="relative">
               <ShoppingBagIcon className="size-5" />
-              <span>(0)</span>
+              <Badge aria-hidden className="absolute top-0.5 right-0.5 h-4 min-w-4 rounded-full px-0.5 tabular-nums">
+                0
+              </Badge>
             </a>
           </Button>
 

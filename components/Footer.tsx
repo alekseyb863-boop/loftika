@@ -23,7 +23,7 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer id="kontakty" className="mt-20">
+    <footer id="kontakty" className="mx-auto mt-20 w-full max-w-7xl">
       <Separator />
       <div className="grid gap-8 p-5 md:grid-cols-2 md:p-8 lg:grid-cols-5">
         <div>
