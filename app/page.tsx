@@ -22,23 +22,23 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <section id="novinki">
-          <div className="relative w-full h-[70vh] min-h-[420px] max-h-[860px] bg-surface overflow-hidden">
+        <section id="novinki" className="grid md:grid-cols-2 bg-surface">
+          <div className="relative aspect-square w-full overflow-hidden md:order-2">
             <Image
               src={asset("/images/hero.jpg")}
               alt="Чёрная металлическая стойка для одежды в интерьере"
               fill
               priority
-              sizes="100vw"
+              sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover object-center"
             />
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between px-4 md:px-8 py-5">
+          <div className="flex flex-col justify-end gap-6 px-4 md:px-8 py-8 md:py-12 md:order-1">
             <div>
-              <h1 className="text-xl md:text-2xl font-medium tracking-tight">Металлические ножки, опоры и каркасы</h1>
-              <p className="text-muted mt-1">Новая коллекция — минимализм и лофт</p>
+              <h1 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight">Металлические ножки, опоры и каркасы</h1>
+              <p className="text-muted mt-3 md:text-lg">Новая коллекция — минимализм и лофт</p>
             </div>
-            <a href="#nozhki" className="inline-block border border-foreground px-5 py-2.5 text-center hover:bg-foreground hover:text-background transition-colors">
+            <a href="#nozhki" className="self-start inline-block border border-foreground px-5 py-2.5 text-center hover:bg-foreground hover:text-background transition-colors">
               Смотреть коллекцию
             </a>
           </div>
