@@ -11,7 +11,7 @@
 - Tailwind CSS v4 (`@tailwindcss/postcss`)
 - React
 - shadcn/ui (стиль radix-vega, компоненты Radix UI в `components/ui`, тема на CSS-переменных в `app/globals.css`)
-- leva (pmndrs) — панель для настройки логотипа на лету (жирность, размер, интервал)
+- leva (pmndrs) — панель настроек для разработки, сейчас не подключена
 - Embla Carousel (через компонент Carousel из shadcn/ui), lucide-react (иконки)
 - Шрифт Golos Text (`next/font/google`, кириллица)
 - Деплой: GitHub Actions → GitHub Pages
@@ -40,8 +40,7 @@ npm run build   # статический сайт появится в папке
 
 ## Настройка
 
-- Размер логотипа — переменная `--logo-size` в `app/globals.css` (в rem; `1.75rem` на мобильных и `3.25rem` на десктопе от 1024px).
-- Панель leva (справа вверху) меняет логотип: жирность 400–900, размер в rem для мобильных и десктопа (шаг 0.125), интервал — выбор класса Tailwind (`tracking-tight` … `tracking-widest`). Кнопка «Скопировать CSS» копирует значения для вставки в `app/globals.css`, «Сбросить» возвращает значения по умолчанию. Хук — `hooks/useLogoControls.ts`, компонент — `components/LogoControls.tsx`.
+- Логотип — классы Tailwind в `lib/logo.ts` (`text-3xl lg:text-5xl font-extrabold tracking-tight leading-none`): `text-3xl` (1.875rem) на мобильных, `text-5xl` (3rem) на десктопе от 1024px. Жёстко прописанных размеров в rem/px избегаем — используем шкалу Tailwind.
 - Фотографии лежат в `public/images`: `hero.jpg` и `product-1.jpg` … `product-4.jpg`. Замените файлы с теми же именами — код менять не нужно.
 - Товары карусели — `lib/products.ts`.
 - Компоненты shadcn/ui добавляются командой `npx shadcn@latest add <компонент>`; настройки — в `components.json`.

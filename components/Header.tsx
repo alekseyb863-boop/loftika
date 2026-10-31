@@ -1,5 +1,4 @@
 import { MenuIcon } from "lucide-react";
-import Logo from "@/components/Logo";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,6 +18,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
+import { logoClass } from "@/lib/logo";
+import { cn } from "@/lib/utils";
 
 const nav = [
   { label: "Новинки", href: "#novinki" },
@@ -36,7 +37,9 @@ export default function Header() {
       </div>
 
       <div className="px-4 pt-6 pb-4 md:px-8 md:pt-8 md:pb-6">
-        <Logo href="#" className="inline-block" aria-label="лофтика — на главную" />
+        <a href="#" className={cn(logoClass, "inline-block")} aria-label="лофтика — на главную">
+          лофтика
+        </a>
       </div>
 
       <div className="sticky top-0 z-30 bg-background">
@@ -51,9 +54,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left" className="w-72">
               <SheetHeader>
-                <SheetTitle asChild>
-                  <Logo as="span" />
-                </SheetTitle>
+                <SheetTitle className={logoClass}>лофтика</SheetTitle>
                 <SheetDescription className="sr-only">Навигация по сайту</SheetDescription>
               </SheetHeader>
               <nav className="flex flex-col px-4" aria-label="Мобильная навигация">

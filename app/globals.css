@@ -38,14 +38,6 @@
   --sidebar-accent-foreground: #111111;
   --sidebar-border: #e4e3e0;
   --sidebar-ring: #8a8a86;
-
-  /* Логотип — значения по умолчанию, менять только здесь (rem/em).
-     Панель leva (components/LogoControls.tsx) перезаписывает эти переменные
-     на лету и читает отсюда стартовые значения.
-     --logo-size — мобильные, --logo-size-lg — десктоп (от 1024px). */
-  --logo-size: 1.75rem;
-  --logo-size-lg: 3.25rem;
-  --logo-weight: 800;
 }
 
 .dark {
@@ -130,20 +122,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    @apply leading-normal;
     font-size: 0.8125rem;
-    line-height: 1.5;
-  }
-}
-
-/* Текстовый логотип — у shadcn такого компонента нет. */
-.logo {
-  font-size: var(--logo-size);
-  line-height: 1;
-  font-weight: var(--logo-weight);
-}
-
-@media (min-width: 64rem) {
-  .logo {
-    font-size: var(--logo-size-lg);
   }
 }
