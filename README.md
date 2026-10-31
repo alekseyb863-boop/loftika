@@ -10,6 +10,8 @@
 - Next.js (App Router, TypeScript), статический экспорт
 - Tailwind CSS v4 (`@tailwindcss/postcss`)
 - React
+- shadcn/ui (стиль radix-vega, компоненты Radix UI в `components/ui`, тема на CSS-переменных в `app/globals.css`)
+- Embla Carousel (через компонент Carousel из shadcn/ui), lucide-react (иконки)
 - Шрифт Golos Text (`next/font/google`, кириллица)
 - Деплой: GitHub Actions → GitHub Pages
 
@@ -37,9 +39,10 @@ npm run build   # статический сайт появится в папке
 
 ## Настройка
 
-- Размер логотипа — переменная `--logo-size` в `app/globals.css` (в rem; на десктопе `5rem`).
+- Размер логотипа — переменная `--logo-size` в `app/globals.css` (в rem; `1.875rem` на мобильных и `3.25rem` на десктопе от 1024px).
 - Фотографии лежат в `public/images`: `hero.jpg` и `product-1.jpg` … `product-4.jpg`. Замените файлы с теми же именами — код менять не нужно.
 - Товары карусели — `lib/products.ts`.
+- Компоненты shadcn/ui добавляются командой `npx shadcn@latest add <компонент>`; настройки — в `components.json`.
 
 ## Деплой
 

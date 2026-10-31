@@ -1,6 +1,23 @@
-"use client";
-
-import { useState } from "react";
+import { MenuIcon } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Separator } from "@/components/ui/separator";
 
 const nav = [
   { label: "Новинки", href: "#novinki" },
@@ -11,11 +28,9 @@ const nav = [
 ];
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
-
   return (
     <header>
-      <div className="bg-surface text-center text-xs py-2 px-4">
+      <div className="bg-muted px-4 py-2 text-center text-xs">
         Бесплатная консультация по подбору ножек и опор
       </div>
 
@@ -25,46 +40,61 @@ export default function Header() {
         </a>
       </div>
 
-      <div className="sticky top-0 z-30 bg-background border-y border-line">
-        <div className="flex items-center justify-between h-11 px-4 md:px-8">
-          <nav className="hidden md:flex items-center gap-6" aria-label="Основная навигация">
-            {nav.map((item) => (
-              <a key={item.href} href={item.href} className="hover:underline underline-offset-4">
-                {item.label}
+      <div className="sticky top-0 z-30 bg-background">
+        <Separator />
+        <div className="flex h-11 items-center justify-between px-4 md:px-8">
+          {/* Мобильное меню */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden" aria-label="Открыть меню">
+                <MenuIcon />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-72">
+              <SheetHeader>
+                <SheetTitle className="logo text-[1.875rem]">лофтика</SheetTitle>
+                <SheetDescription className="sr-only">Навигация по сайту</SheetDescription>
+              </SheetHeader>
+              <nav className="flex flex-col px-4" aria-label="Мобильная навигация">
+                {nav.map((item) => (
+                  <SheetClose key={item.href} asChild>
+                    <Button asChild variant="ghost" size="lg" className="justify-start text-base">
+                      <a href={item.href}>{item.label}</a>
+                    </Button>
+                  </SheetClose>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
+
+          {/* Десктопная навигация */}
+          <NavigationMenu className="hidden md:flex" aria-label="Основная навигация">
+            <NavigationMenuList>
+              {nav.map((item) => (
+                <NavigationMenuItem key={item.href}>
+                  <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                    <a href={item.href}>{item.label}</a>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          <div className="flex items-center gap-1">
+            <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+              <a href="#">Поиск</a>
+            </Button>
+            <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+              <a href="#">Войти</a>
+            </Button>
+            <Button asChild variant="ghost" size="sm">
+              <a href="#">
+                Корзина <Badge variant="secondary">0</Badge>
               </a>
-            ))}
-          </nav>
-
-          <button
-            type="button"
-            className="md:hidden"
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? "Закрыть" : "Меню"}
-          </button>
-
-          <div className="flex items-center gap-5">
-            <a href="#" className="hidden sm:inline hover:underline underline-offset-4">Поиск</a>
-            <a href="#" className="hidden sm:inline hover:underline underline-offset-4">Войти</a>
-            <a href="#" className="hover:underline underline-offset-4">Корзина (0)</a>
+            </Button>
           </div>
         </div>
-
-        {open && (
-          <nav
-            id="mobile-nav"
-            className="md:hidden border-t border-line px-4 py-3 flex flex-col gap-3"
-            aria-label="Мобильная навигация"
-          >
-            {nav.map((item) => (
-              <a key={item.href} href={item.href} onClick={() => setOpen(false)} className="text-base">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        )}
+        <Separator />
       </div>
     </header>
   );
