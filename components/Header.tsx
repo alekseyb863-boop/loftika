@@ -30,7 +30,7 @@ const nav = [
 export default function Header() {
   return (
     <header className="sticky top-0 z-30 border-b bg-background">
-      <div className="flex h-13 items-center gap-6 px-4 md:px-8">
+      <div className="flex h-13 lg:h-18 items-center gap-6 px-4 md:px-8">
         <a href="#" className={cn(logoClass, "shrink-0 -translate-y-1 lg:-translate-y-1.5")} aria-label="лофтика — на главную">
           лофтика
         </a>
