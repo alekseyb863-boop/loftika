@@ -40,7 +40,7 @@ export default function Header() {
           <NavigationMenuList>
             {nav.map((item) => (
               <NavigationMenuItem key={item.href}>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), "font-normal")}>
                   <a href={item.href}>{item.label}</a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -81,7 +81,7 @@ export default function Header() {
               <nav className="flex flex-col px-4" aria-label="Мобильная навигация">
                 {nav.map((item) => (
                   <SheetClose key={item.href} asChild>
-                    <Button asChild variant="ghost" size="lg" className="justify-start text-base">
+                    <Button asChild variant="ghost" size="lg" className="justify-start text-base font-normal">
                       <a href={item.href}>{item.label}</a>
                     </Button>
                   </SheetClose>
