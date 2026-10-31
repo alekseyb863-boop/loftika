@@ -32,10 +32,6 @@ const nav = [
 export default function Header() {
   return (
     <header>
-      <div className="bg-muted px-4 py-2 text-center text-xs">
-        Бесплатная консультация по подбору ножек и опор
-      </div>
-
       <div className="px-4 pt-6 pb-4 md:px-8 md:pt-8 md:pb-6">
         <a href="#" className={cn(logoClass, "inline-block")} aria-label="лофтика — на главную">
           лофтика
