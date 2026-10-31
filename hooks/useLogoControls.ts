@@ -11,6 +11,11 @@ export type LogoDefaults = {
 };
 
 const FOLDER = "Логотип";
+const TRACKING_STEP = 0.025;
+
+// Ползунок leva отсчитывает шаг от стартового значения. Стартовое -0.04em не кратно 0.025,
+// поэтому после первого движения ползунка подтягиваем значение к сетке 0.025.
+const snapTracking = (v: number) => Number((Math.round(v / TRACKING_STEP) * TRACKING_STEP).toFixed(3));
 
 // Читает значения по умолчанию из CSS-переменных в globals.css (они — источник правды).
 export function readLogoDefaults(): LogoDefaults {
@@ -33,9 +38,9 @@ export function useLogoControls(d: LogoDefaults) {
     FOLDER,
     () => ({
       fontWeight: { value: d.weight, min: 400, max: 900, step: 100, label: "Жирность" },
-      fontSize: { value: d.size, min: 1, max: 6, step: 0.025, label: "Размер (моб.), rem" },
-      fontSizeLg: { value: d.sizeLg, min: 1, max: 10, step: 0.05, label: "Размер (деск.), rem" },
-      letterSpacing: { value: d.tracking, min: -0.1, max: 0.3, step: 0.005, label: "Интервал, em" },
+      fontSize: { value: d.size, min: 1, max: 6, step: 0.125, pad: 3, label: "Размер (моб.), rem" },
+      fontSizeLg: { value: d.sizeLg, min: 1, max: 10, step: 0.125, pad: 3, label: "Размер (деск.), rem" },
+      letterSpacing: { value: d.tracking, min: -0.1, max: 0.3, step: TRACKING_STEP, pad: 3, label: "Интервал, em" },
       "Скопировать CSS": button((get) => {
         const css = [
           ".logo {",
@@ -61,10 +66,19 @@ export function useLogoControls(d: LogoDefaults) {
 
   const { fontWeight, fontSize, fontSizeLg, letterSpacing } = values;
   useEffect(() => {
+    // Пока ползунок не тронут (значение = стартовому из CSS), ничего не округляем.
+    const tracking = letterSpacing === d.tracking ? letterSpacing : snapTracking(letterSpacing);
+
     const root = document.documentElement.style;
     root.setProperty("--logo-weight", String(fontWeight));
     root.setProperty("--logo-size", `${fontSize}rem`);
     root.setProperty("--logo-size-lg", `${fontSizeLg}rem`);
-    root.setProperty("--logo-tracking", `${letterSpacing}em`);
-  }, [fontWeight, fontSize, fontSizeLg, letterSpacing]);
+    root.setProperty("--logo-tracking", `${tracking}em`);
+
+    // Показание ползунка подтягиваем к сетке после отпускания (во время drag значение меняется постоянно).
+    if (tracking !== letterSpacing) {
+      const t = setTimeout(() => set({ letterSpacing: tracking }), 150);
+      return () => clearTimeout(t);
+    }
+  }, [fontWeight, fontSize, fontSizeLg, letterSpacing, d.tracking, set]);
 }
