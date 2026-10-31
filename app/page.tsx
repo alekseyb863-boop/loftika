@@ -60,7 +60,7 @@ export default function Home() {
           <h2 className="px-4 md:px-8 mb-6 text-xl md:text-2xl font-medium tracking-tight">Каталог</h2>
           <div className="grid md:grid-cols-2">
             {tiles.map((t) => (
-              <a key={t.title} href="#" className="group block border-l-0 md:border-l md:first:border-l-0">
+              <a key={t.title} href="#" className="group block">
                 <Card className="gap-0 rounded-none bg-transparent py-0 shadow-none ring-0">
                   <AspectRatio ratio={4 / 3} className="relative overflow-hidden bg-muted">
                     <Image
