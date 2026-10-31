@@ -51,17 +51,17 @@ export default function Header() {
         <div className="ml-auto flex items-center gap-1">
           <Button asChild variant="ghost" size="icon">
             <a href="#" aria-label="Поиск">
-              <SearchIcon />
+              <SearchIcon className="size-5" />
             </a>
           </Button>
           <Button asChild variant="ghost" size="icon">
             <a href="#" aria-label="Войти">
-              <UserIcon />
+              <UserIcon className="size-5" />
             </a>
           </Button>
           <Button asChild variant="ghost">
             <a href="#" aria-label="Корзина, товаров: 0">
-              <ShoppingBagIcon />
+              <ShoppingBagIcon className="size-5" />
               <span>(0)</span>
             </a>
           </Button>
@@ -70,7 +70,7 @@ export default function Header() {
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Открыть меню">
-                <MenuIcon />
+                <MenuIcon className="size-5" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-72">
