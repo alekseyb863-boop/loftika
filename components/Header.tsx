@@ -1,3 +1,5 @@
+"use client";
+
 import { MenuIcon, SearchIcon, ShoppingBagIcon, UserIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,6 +21,7 @@ import {
 } from "@/components/ui/sheet";
 import { logoClass } from "@/lib/logo";
 import { cn } from "@/lib/utils";
+import { useHideOnScroll } from "@/hooks/use-hide-on-scroll";
 
 const nav = [
   { label: "Новинки", href: "#novinki" },
@@ -29,8 +32,17 @@ const nav = [
 ];
 
 export default function Header() {
+  const hidden = useHideOnScroll();
+
   return (
-    <header className="sticky top-0 z-30 bg-background">
+    <header
+      data-hidden={hidden}
+      className={cn(
+        "sticky top-0 z-30 bg-background transition-transform duration-300 ease-out motion-reduce:transition-none",
+        // Пока фокус внутри шапки (навигация с клавиатуры), она не прячется
+        "data-[hidden=true]:-translate-y-full data-[hidden=true]:focus-within:translate-y-0",
+      )}
+    >
       <div className="mx-auto flex h-13 lg:h-15 max-w-7xl items-center border-b gap-6 px-4 md:px-8">
         <a href="#" className={cn(logoClass, "shrink-0 -translate-y-1 lg:-translate-y-1")} aria-label="лофтика — на главную">
           лофтика
