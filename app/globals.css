@@ -39,15 +39,14 @@
   --sidebar-border: #e4e3e0;
   --sidebar-ring: #8a8a86;
 
-  /* Размер логотипа — менять только здесь (в rem).
-     Мобильные: 1.875rem, десктоп (от 1024px): 3.25rem. */
+  /* Логотип — значения по умолчанию, менять только здесь (rem/em).
+     Панель leva (components/LogoControls.tsx) перезаписывает эти переменные
+     на лету и читает отсюда стартовые значения.
+     --logo-size — мобильные, --logo-size-lg — десктоп (от 1024px). */
   --logo-size: 1.875rem;
-}
-
-@media (min-width: 64rem) {
-  :root {
-    --logo-size: 3.25rem;
-  }
+  --logo-size-lg: 3.25rem;
+  --logo-weight: 600;
+  --logo-tracking: -0.04em;
 }
 
 .dark {
@@ -141,6 +140,12 @@
 .logo {
   font-size: var(--logo-size);
   line-height: 1;
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  font-weight: var(--logo-weight);
+  letter-spacing: var(--logo-tracking);
+}
+
+@media (min-width: 64rem) {
+  .logo {
+    font-size: var(--logo-size-lg);
+  }
 }

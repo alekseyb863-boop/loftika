@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Golos_Text } from "next/font/google";
 import "./globals.css";
+import LogoControls from "@/components/LogoControls";
 import { cn } from "@/lib/utils";
 
 const golos = Golos_Text({
@@ -18,7 +19,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ru" className={cn("h-full antialiased font-sans", golos.variable)}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">{children}
+        <LogoControls />
+      </body>
     </html>
   );
 }
