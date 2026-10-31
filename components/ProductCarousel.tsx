@@ -30,9 +30,9 @@ export default function ProductCarousel({ items, title, href = "#" }: { items: P
         </div>
       </div>
 
-      <CarouselContent className="ml-0">
+      <CarouselContent className="-ml-0.5">
         {items.map((p) => (
-          <CarouselItem key={p.id} className="basis-7/10 pl-0 sm:basis-1/2 lg:basis-1/4">
+          <CarouselItem key={p.id} className="basis-7/10 pl-0.5 sm:basis-1/2 lg:basis-1/4">
             <a href="#" className="group block">
               <Card className="gap-0 rounded-none bg-transparent py-0 shadow-none ring-0">
                 <AspectRatio ratio={1} className="relative overflow-hidden bg-muted">
