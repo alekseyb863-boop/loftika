@@ -58,6 +58,7 @@ export default function Home() {
             itemClassName="basis-5/12 pl-0.5 lg:basis-1/6"
             captionClassName="text-center"
             imageSizes="(min-width: 1024px) 16vw, 42vw"
+            showAll={false}
           />
         </section>
 

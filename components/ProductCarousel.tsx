@@ -22,6 +22,7 @@ export default function ProductCarousel({
   itemClassName = "basis-7/10 pl-0.5 sm:basis-1/2 lg:basis-1/4",
   captionClassName,
   imageSizes = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 70vw",
+  showAll = true,
 }: {
   items: Product[];
   title: string;
@@ -29,15 +30,18 @@ export default function ProductCarousel({
   itemClassName?: string;
   captionClassName?: string;
   imageSizes?: string;
+  showAll?: boolean;
 }) {
   return (
     <Carousel opts={{ align: "start", slidesToScroll: 1 }} aria-label={title}>
       <div className="mb-5 flex items-center justify-between gap-4 px-4 md:px-8">
         <h2 className="text-xl font-medium tracking-tight md:text-2xl">{title}</h2>
         <div className="-my-2 flex items-center gap-4">
-          <Button asChild variant="link" className="hidden px-0 underline sm:inline-flex">
-            <a href={href}>Смотреть все</a>
-          </Button>
+          {showAll ? (
+            <Button asChild variant="link" className="hidden px-0 underline sm:inline-flex">
+              <a href={href}>Смотреть все</a>
+            </Button>
+          ) : null}
           <div className="flex gap-2">
             <CarouselPrevious className={arrow} />
             <CarouselNext className={arrow} />
