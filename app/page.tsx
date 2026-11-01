@@ -50,6 +50,17 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Категории: плотнее, чем витрина ножек */}
+        <section className="pt-14 md:pt-20">
+          <ProductCarousel
+            items={legs}
+            title="Категории"
+            itemClassName="basis-5/12 pl-0.5 lg:basis-1/6"
+            captionClassName="text-center"
+            imageSizes="(min-width: 1024px) 16vw, 42vw"
+          />
+        </section>
+
         {/* Категория */}
         <section id="nozhki" className="pt-14 md:pt-20">
           <ProductCarousel items={legs} title="Ножки и опоры" />

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 import { asset } from "@/lib/asset";
 import type { Product } from "@/lib/products";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -14,7 +15,21 @@ import {
 
 const arrow = "static size-9 translate-none rounded-none";
 
-export default function ProductCarousel({ items, title, href = "#" }: { items: Product[]; title: string; href?: string }) {
+export default function ProductCarousel({
+  items,
+  title,
+  href = "#",
+  itemClassName = "basis-7/10 pl-0.5 sm:basis-1/2 lg:basis-1/4",
+  captionClassName,
+  imageSizes = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 70vw",
+}: {
+  items: Product[];
+  title: string;
+  href?: string;
+  itemClassName?: string;
+  captionClassName?: string;
+  imageSizes?: string;
+}) {
   return (
     <Carousel opts={{ align: "start", slidesToScroll: 1 }} aria-label={title}>
       <div className="mb-5 flex items-center justify-between gap-4 px-4 md:px-8">
@@ -32,7 +47,7 @@ export default function ProductCarousel({ items, title, href = "#" }: { items: P
 
       <CarouselContent className="-ml-0.5">
         {items.map((p) => (
-          <CarouselItem key={p.id} className="basis-7/10 pl-0.5 sm:basis-1/2 lg:basis-1/4">
+          <CarouselItem key={p.id} className={itemClassName}>
             <a href="#" className="group block">
               <Card className="gap-0 rounded-none bg-transparent py-0 shadow-none ring-0">
                 <AspectRatio ratio={1} className="relative overflow-hidden bg-muted">
@@ -40,11 +55,11 @@ export default function ProductCarousel({ items, title, href = "#" }: { items: P
                     src={asset(p.image)}
                     alt={p.alt}
                     fill
-                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 70vw"
+                    sizes={imageSizes}
                     className="aspect-square object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </AspectRatio>
-                <CardContent className="px-4 py-3 md:px-8">{p.article}</CardContent>
+                <CardContent className={cn("px-4 py-3 md:px-8", captionClassName)}>{p.article}</CardContent>
               </Card>
             </a>
           </CarouselItem>
