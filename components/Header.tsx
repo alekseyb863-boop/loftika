@@ -44,8 +44,8 @@ export default function Header() {
       )}
     >
       <div className="flex h-13 lg:h-15 items-center gap-6 px-4 md:px-8">
-        <a href="#" className={cn(logoClass, "shrink-0 -translate-y-1 lg:-translate-y-1")} aria-label="лофтика — на главную">
-          лофтика
+        <a href="#" className={cn(logoClass, "shrink-0 -translate-y-1 lg:-translate-y-1")} aria-label="ЛОФТИКА — на главную">
+          ЛОФТИКА
         </a>
 
         {/* Десктопная навигация (от lg) — в той же строке справа от лого */}
@@ -90,7 +90,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-72">
               <SheetHeader>
-                <SheetTitle className={logoClass}>лофтика</SheetTitle>
+                <SheetTitle className={logoClass}>ЛОФТИКА</SheetTitle>
                 <SheetDescription className="sr-only">Навигация по сайту</SheetDescription>
               </SheetHeader>
               <nav className="flex flex-col px-4" aria-label="Мобильная навигация">
