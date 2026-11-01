@@ -53,7 +53,7 @@ export default function Header() {
         "data-[hidden=true]:-translate-y-full data-[hidden=true]:focus-within:translate-y-0",
       )}
     >
-      <div className="relative flex h-15 items-center px-4 md:px-8 lg:h-17 lg:gap-6">
+      <div className="relative flex h-15 items-center px-2 lg:h-17 lg:gap-6 lg:px-8">
         <div className="flex items-center lg:hidden">
           <Sheet>
             <SheetTrigger asChild>
