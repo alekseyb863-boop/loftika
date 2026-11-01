@@ -31,6 +31,16 @@ const nav = [
   { label: "Контакты", href: "#kontakty" },
 ];
 
+function SearchButton({ className }: { className?: string }) {
+  return (
+    <Button asChild variant="ghost" size="icon" className={className}>
+      <a href="#" aria-label="Поиск">
+        <SearchIcon className="size-5" />
+      </a>
+    </Button>
+  );
+}
+
 export default function Header() {
   const hidden = useHideOnScroll();
 
@@ -43,48 +53,11 @@ export default function Header() {
         "data-[hidden=true]:-translate-y-full data-[hidden=true]:focus-within:translate-y-0",
       )}
     >
-      <div className="flex h-13 lg:h-15 items-center gap-6 px-4 md:px-8">
-        <a href="#" className={cn(logoClass, "shrink-0 -translate-y-1 lg:-translate-y-1")} aria-label="лофтика — на главную">
-          лофтика
-        </a>
-
-        {/* Десктопная навигация (от lg) — в той же строке справа от лого */}
-        <NavigationMenu className="hidden lg:flex" aria-label="Основная навигация">
-          <NavigationMenuList>
-            {nav.map((item) => (
-              <NavigationMenuItem key={item.href}>
-                <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), "font-normal")}>
-                  <a href={item.href}>{item.label}</a>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
-
-        <div className="ml-auto flex items-center gap-0">
-          <Button asChild variant="ghost" size="icon">
-            <a href="#" aria-label="Поиск">
-              <SearchIcon className="size-5" />
-            </a>
-          </Button>
-          <Button asChild variant="ghost" size="icon">
-            <a href="#" aria-label="Войти">
-              <UserIcon className="size-5" />
-            </a>
-          </Button>
-          <Button asChild variant="ghost" size="icon">
-            <a href="#" aria-label="Корзина, товаров: 0" className="relative">
-              <ShoppingBagIcon className="size-5" />
-              <Badge aria-hidden className="bg-destructive text-white absolute top-0.5 right-0.5 h-4 min-w-4 rounded-full px-0.5 tabular-nums">
-                0
-              </Badge>
-            </a>
-          </Button>
-
-          {/* Мобильное меню (до lg) */}
+      <div className="site-header-bar relative flex items-center px-4 md:px-8 lg:gap-6">
+        <div className="flex items-center lg:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Открыть меню">
+              <Button variant="ghost" size="icon" aria-label="Открыть меню">
                 <MenuIcon className="size-5" />
               </Button>
             </SheetTrigger>
@@ -104,6 +77,47 @@ export default function Header() {
               </nav>
             </SheetContent>
           </Sheet>
+          <SearchButton />
+        </div>
+
+        <a
+          href="#"
+          className={cn(
+            logoClass,
+            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:static lg:translate-x-0 lg:-translate-y-1",
+          )}
+          aria-label="лофтика — на главную"
+        >
+          лофтика
+        </a>
+
+        <NavigationMenu className="hidden lg:flex" aria-label="Основная навигация">
+          <NavigationMenuList>
+            {nav.map((item) => (
+              <NavigationMenuItem key={item.href}>
+                <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), "font-normal")}>
+                  <a href={item.href}>{item.label}</a>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        <div className="ml-auto flex items-center">
+          <SearchButton className="hidden lg:inline-flex" />
+          <Button asChild variant="ghost" size="icon">
+            <a href="#" aria-label="Войти">
+              <UserIcon className="size-5" />
+            </a>
+          </Button>
+          <Button asChild variant="ghost" size="icon">
+            <a href="#" aria-label="Корзина, товаров: 0" className="relative">
+              <ShoppingBagIcon className="size-5" />
+              <Badge aria-hidden className="bg-destructive text-white absolute top-0.5 right-0.5 h-4 min-w-4 rounded-full px-0.5 tabular-nums">
+                0
+              </Badge>
+            </a>
+          </Button>
         </div>
       </div>
     </header>

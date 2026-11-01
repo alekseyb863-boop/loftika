@@ -38,9 +38,12 @@
   --sidebar-accent-foreground: #111111;
   --sidebar-border: #e4e3e0;
   --sidebar-ring: #8a8a86;
-  --font-logo: var(--font-golos);
-  --logo-weight: 800;
-  --logo-size: 36px;
+  --font-logo: var(--font-unbounded);
+  --logo-weight: 600;
+  --logo-size: 28px;
+  --logo-size-desktop: 32px;
+  --header-height: 3.25rem;
+  --header-height-desktop: 3.75rem;
 }
 
 .dark {
@@ -122,7 +125,7 @@
   html {
     @apply font-sans;
     scroll-behavior: smooth;
-    @apply scroll-pt-13 lg:scroll-pt-15;
+    scroll-padding-top: var(--header-height);
   }
   body {
     @apply bg-background text-foreground;
@@ -134,6 +137,24 @@
   font-family: var(--font-logo), sans-serif;
   font-weight: var(--logo-weight);
   font-size: var(--logo-size);
+}
+
+.site-header-bar {
+  height: var(--header-height);
+}
+
+@media (min-width: 64rem) {
+  .font-logo {
+    font-size: var(--logo-size-desktop);
+  }
+
+  .site-header-bar {
+    height: var(--header-height-desktop);
+  }
+
+  html {
+    scroll-padding-top: var(--header-height-desktop);
+  }
 }
 
 svg.lucide {

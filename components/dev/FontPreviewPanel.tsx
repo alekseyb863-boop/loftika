@@ -3,43 +3,57 @@
 import { useControls } from "leva";
 import { useEffect } from "react";
 
-const LOGO_FONTS = {
-  "Golos Text": "--font-golos",
-  Unbounded: "--font-unbounded",
+const HEADER_HEIGHTS = {
+  "h-10": "2.5rem",
+  "h-11": "2.75rem",
+  "h-12": "3rem",
+  "h-13": "3.25rem",
+  "h-14": "3.5rem",
+  "h-15": "3.75rem",
+  "h-16": "4rem",
+  "h-17": "4.25rem",
+  "h-18": "4.5rem",
 } as const;
 
-type LogoFont = keyof typeof LOGO_FONTS;
+type HeaderHeight = keyof typeof HEADER_HEIGHTS;
 
-const LOGO_WEIGHTS = ["400", "500", "600", "700", "800"] as const;
+const HEIGHT_OPTIONS = Object.keys(HEADER_HEIGHTS) as HeaderHeight[];
+
+const sizeControl = (value: number) => ({
+  value,
+  min: 24,
+  max: 40,
+  step: 2,
+});
 
 export default function FontPreviewPanel() {
-  const { font, weight, size } = useControls("Логотип", {
-    font: {
-      label: "Шрифт",
-      value: "Golos Text" satisfies LogoFont,
-      options: Object.keys(LOGO_FONTS) as LogoFont[],
+  const { sizeMobile, sizeDesktop } = useControls("Логотип", {
+    sizeMobile: { label: "Размер, мобильный", ...sizeControl(28) },
+    sizeDesktop: { label: "Размер, десктоп", ...sizeControl(32) },
+  });
+
+  const { heightMobile, heightDesktop } = useControls("Хедер", {
+    heightMobile: {
+      label: "Высота, мобильный",
+      value: "h-13" satisfies HeaderHeight,
+      options: HEIGHT_OPTIONS,
     },
-    weight: {
-      label: "Начертание",
-      value: "800",
-      options: [...LOGO_WEIGHTS],
-    },
-    size: {
-      label: "Размер",
-      value: 36,
-      min: 24,
-      max: 40,
-      step: 2,
+    heightDesktop: {
+      label: "Высота, десктоп",
+      value: "h-15" satisfies HeaderHeight,
+      options: HEIGHT_OPTIONS,
     },
   });
 
   useEffect(() => {
     const root = document.documentElement;
-    const token = LOGO_FONTS[font as LogoFont] ?? LOGO_FONTS["Golos Text"];
-    root.style.setProperty("--font-logo", `var(${token})`);
-    root.style.setProperty("--logo-weight", String(weight));
-    root.style.setProperty("--logo-size", `${Math.round(Number(size))}px`);
-  }, [font, weight, size]);
+    const mobileHeight = HEADER_HEIGHTS[heightMobile as HeaderHeight] ?? HEADER_HEIGHTS["h-13"];
+    const desktopHeight = HEADER_HEIGHTS[heightDesktop as HeaderHeight] ?? HEADER_HEIGHTS["h-15"];
+    root.style.setProperty("--logo-size", `${Math.round(Number(sizeMobile))}px`);
+    root.style.setProperty("--logo-size-desktop", `${Math.round(Number(sizeDesktop))}px`);
+    root.style.setProperty("--header-height", mobileHeight);
+    root.style.setProperty("--header-height-desktop", desktopHeight);
+  }, [sizeMobile, sizeDesktop, heightMobile, heightDesktop]);
 
   return null;
 }
