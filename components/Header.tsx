@@ -61,7 +61,7 @@ export default function Header() {
                 <MenuIcon className="size-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-72">
+            <SheetContent side="left" className="w-72">
               <SheetHeader>
                 <SheetTitle className={logoClass}>лофтика</SheetTitle>
                 <SheetDescription className="sr-only">Навигация по сайту</SheetDescription>
