@@ -53,7 +53,7 @@ export default function Header() {
         "data-[hidden=true]:-translate-y-full data-[hidden=true]:focus-within:translate-y-0",
       )}
     >
-      <div className="site-header-bar relative flex items-center px-4 md:px-8 lg:gap-6">
+      <div className="relative flex h-15 items-center px-4 md:px-8 lg:h-17 lg:gap-6">
         <div className="flex items-center lg:hidden">
           <Sheet>
             <SheetTrigger asChild>
@@ -113,7 +113,7 @@ export default function Header() {
           <Button asChild variant="ghost" size="icon">
             <a href="#" aria-label="Корзина, товаров: 0" className="relative">
               <ShoppingBagIcon className="size-5" />
-              <Badge aria-hidden className="bg-destructive text-white absolute top-0.5 right-0.5 h-4 min-w-4 rounded-full px-0.5 tabular-nums">
+              <Badge aria-hidden className="absolute top-0.5 right-0.5 h-4 min-w-4 rounded-full bg-[var(--cart-badge)] px-0.5 text-white tabular-nums">
                 0
               </Badge>
             </a>

@@ -40,10 +40,7 @@
   --sidebar-ring: #8a8a86;
   --font-logo: var(--font-unbounded);
   --logo-weight: 600;
-  --logo-size: 28px;
-  --logo-size-desktop: 32px;
-  --header-height: 3.25rem;
-  --header-height-desktop: 3.75rem;
+  --cart-badge: var(--destructive);
 }
 
 .dark {
@@ -123,9 +120,8 @@
     @apply border-border outline-ring/50;
   }
   html {
-    @apply font-sans;
+    @apply font-sans scroll-pt-15 lg:scroll-pt-17;
     scroll-behavior: smooth;
-    scroll-padding-top: var(--header-height);
   }
   body {
     @apply bg-background text-foreground;
@@ -136,25 +132,6 @@
 .font-logo {
   font-family: var(--font-logo), sans-serif;
   font-weight: var(--logo-weight);
-  font-size: var(--logo-size);
-}
-
-.site-header-bar {
-  height: var(--header-height);
-}
-
-@media (min-width: 64rem) {
-  .font-logo {
-    font-size: var(--logo-size-desktop);
-  }
-
-  .site-header-bar {
-    height: var(--header-height-desktop);
-  }
-
-  html {
-    scroll-padding-top: var(--header-height-desktop);
-  }
 }
 
 svg.lucide {
