@@ -39,6 +39,8 @@
   --sidebar-border: #e4e3e0;
   --sidebar-ring: #8a8a86;
   --font-logo: var(--font-golos);
+  --logo-weight: 800;
+  --logo-size: 36px;
 }
 
 .dark {
@@ -130,6 +132,8 @@
 
 .font-logo {
   font-family: var(--font-logo), sans-serif;
+  font-weight: var(--logo-weight);
+  font-size: var(--logo-size);
 }
 
 svg.lucide {

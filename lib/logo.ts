@@ -1,2 +1,2 @@
-// Классы текстового логотипа — стандартная шкала Tailwind (мобильные text-3xl, от lg text-4xl).
-export const logoClass = "font-logo text-3xl lg:text-4xl font-extrabold tracking-tight leading-none";
+// Семейство, начертание и размер задаются в панели leva через CSS-переменные.
+export const logoClass = "font-logo tracking-tight leading-none";

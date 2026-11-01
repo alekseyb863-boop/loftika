@@ -11,7 +11,7 @@
 - Tailwind CSS v4 (`@tailwindcss/postcss`)
 - React
 - shadcn/ui (стиль radix-vega, компоненты Radix UI в `components/ui`, тема на CSS-переменных в `app/globals.css`)
-- leva (pmndrs) — панель на сайте: шрифт логотипа (Golos Text / Unbounded)
+- leva (pmndrs) — панель на сайте: шрифт логотипа (Golos Text / Unbounded), начертание 400–800 и размер 24–40px
 - Embla Carousel (через компонент Carousel из shadcn/ui), lucide-react (иконки, толщина линии 1.6)
 - Шрифт Golos Text (`next/font/google`, кириллица); Unbounded подключён для логотипа
 - Деплой: GitHub Actions → GitHub Pages
@@ -40,7 +40,7 @@ npm run build   # статический сайт появится в папке
 
 ## Настройка
 
-- Логотип — классы Tailwind в `lib/logo.ts` (`text-3xl lg:text-4xl font-extrabold tracking-tight leading-none`): `text-3xl` (1.875rem) на мобильных, `text-4xl` (2.25rem) на десктопе от 1024px. Жёстко прописанных размеров в rem/px избегаем — используем шкалу Tailwind.
+- Логотип — класс `font-logo` в `lib/logo.ts`. По умолчанию Golos Text, начертание 800, размер 36px. В панели leva можно сменить шрифт на Unbounded, начертание (400, 500, 600, 700, 800) и размер от 24px до 40px с шагом 2px.
 - Фотографии лежат в `public/images`: `hero.jpg` и `product-1.jpg` … `product-4.jpg`. Замените файлы с теми же именами — код менять не нужно.
 - Товары карусели — `lib/products.ts`.
 - Компоненты shadcn/ui добавляются командой `npx shadcn@latest add <компонент>`; настройки — в `components.json`.
