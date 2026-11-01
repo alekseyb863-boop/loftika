@@ -11,9 +11,9 @@
 - Tailwind CSS v4 (`@tailwindcss/postcss`)
 - React
 - shadcn/ui (стиль radix-vega, компоненты Radix UI в `components/ui`, тема на CSS-переменных в `app/globals.css`)
-- leva (pmndrs) — панель на сайте: шрифт (Inter / Golos Text), начертание меню и артикулов, толщина линий иконок поиска, входа и корзины
-- Embla Carousel (через компонент Carousel из shadcn/ui), lucide-react (иконки)
-- Шрифт Inter (`next/font/google`, кириллица); Golos Text подключён для сравнения в панели
+- leva (pmndrs) — панель на сайте: шрифт логотипа (Golos Text / Unbounded)
+- Embla Carousel (через компонент Carousel из shadcn/ui), lucide-react (иконки, толщина линии 1.6)
+- Шрифт Golos Text (`next/font/google`, кириллица); Unbounded подключён для логотипа
 - Деплой: GitHub Actions → GitHub Pages
 
 ## Запуск локально

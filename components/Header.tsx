@@ -53,10 +53,8 @@ export default function Header() {
           <NavigationMenuList>
             {nav.map((item) => (
               <NavigationMenuItem key={item.href}>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                  <a href={item.href} style={{ fontWeight: "var(--menu-weight)" }}>
-                    {item.label}
-                  </a>
+                <NavigationMenuLink asChild className={cn(navigationMenuTriggerStyle(), "font-normal")}>
+                  <a href={item.href}>{item.label}</a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             ))}
@@ -66,17 +64,17 @@ export default function Header() {
         <div className="ml-auto flex items-center gap-0">
           <Button asChild variant="ghost" size="icon">
             <a href="#" aria-label="Поиск">
-              <SearchIcon className="icon-stroke size-5" />
+              <SearchIcon className="size-5" />
             </a>
           </Button>
           <Button asChild variant="ghost" size="icon">
             <a href="#" aria-label="Войти">
-              <UserIcon className="icon-stroke size-5" />
+              <UserIcon className="size-5" />
             </a>
           </Button>
           <Button asChild variant="ghost" size="icon">
             <a href="#" aria-label="Корзина, товаров: 0" className="relative">
-              <ShoppingBagIcon className="icon-stroke size-5" />
+              <ShoppingBagIcon className="size-5" />
               <Badge aria-hidden className="bg-destructive text-white absolute top-0.5 right-0.5 h-4 min-w-4 rounded-full px-0.5 tabular-nums">
                 0
               </Badge>
@@ -98,10 +96,8 @@ export default function Header() {
               <nav className="flex flex-col px-4" aria-label="Мобильная навигация">
                 {nav.map((item) => (
                   <SheetClose key={item.href} asChild>
-                    <Button asChild variant="ghost" size="lg" className="justify-start text-base">
-                      <a href={item.href} style={{ fontWeight: "var(--menu-weight)" }}>
-                        {item.label}
-                      </a>
+                    <Button asChild variant="ghost" size="lg" className="justify-start text-base font-normal">
+                      <a href={item.href}>{item.label}</a>
                     </Button>
                   </SheetClose>
                 ))}

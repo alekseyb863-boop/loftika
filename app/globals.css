@@ -38,9 +38,7 @@
   --sidebar-accent-foreground: #111111;
   --sidebar-border: #e4e3e0;
   --sidebar-ring: #8a8a86;
-  --icon-stroke: 2;
-  --menu-weight: 400;
-  --article-weight: 400;
+  --font-logo: var(--font-golos);
 }
 
 .dark {
@@ -130,7 +128,10 @@
   }
 }
 
-/* Толщина линий иконок поиска, входа и корзины — меняется из leva. */
-svg.icon-stroke {
-  stroke-width: var(--icon-stroke);
+.font-logo {
+  font-family: var(--font-logo), sans-serif;
+}
+
+svg.lucide {
+  stroke-width: 1.6;
 }

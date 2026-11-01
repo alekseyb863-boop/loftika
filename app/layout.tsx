@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Golos_Text, Inter } from "next/font/google";
+import { Golos_Text, Unbounded } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import FontPreviewPanel from "@/components/dev/FontPreviewPanel";
@@ -10,8 +10,8 @@ const golos = Golos_Text({
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const unbounded = Unbounded({
+  variable: "--font-unbounded",
   subsets: ["cyrillic", "latin"],
   display: "swap",
 });
@@ -26,8 +26,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ru"
-      className={cn("h-full antialiased font-sans", golos.variable, inter.variable)}
-      style={{ ["--font-sans" as string]: "var(--font-inter)" }}
+      className={cn("h-full antialiased font-sans", golos.variable, unbounded.variable)}
+      style={{ ["--font-sans" as string]: "var(--font-golos)" }}
     >
       <body className="min-h-full flex flex-col">
         <FontPreviewPanel />

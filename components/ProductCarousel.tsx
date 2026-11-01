@@ -44,9 +44,7 @@ export default function ProductCarousel({ items, title, href = "#" }: { items: P
                     className="aspect-square object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </AspectRatio>
-                <CardContent className="px-4 py-3 md:px-8" style={{ fontWeight: "var(--article-weight)" }}>
-                  {p.article}
-                </CardContent>
+                <CardContent className="px-4 py-3 md:px-8">{p.article}</CardContent>
               </Card>
             </a>
           </CarouselItem>
