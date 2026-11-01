@@ -11,7 +11,7 @@
 - Tailwind CSS v4 (`@tailwindcss/postcss`)
 - React
 - shadcn/ui (стиль radix-vega, компоненты Radix UI в `components/ui`, тема на CSS-переменных в `app/globals.css`)
-- leva (pmndrs) — в dev-режиме панель «Шрифт» для переключения Golos Text / Inter
+- leva (pmndrs) — панель «Шрифт» для переключения Golos Text / Inter (в том числе на GitHub Pages)
 - Embla Carousel (через компонент Carousel из shadcn/ui), lucide-react (иконки)
 - Шрифт Golos Text (`next/font/google`, кириллица)
 - Деплой: GitHub Actions → GitHub Pages

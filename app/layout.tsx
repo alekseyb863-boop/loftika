@@ -30,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       style={{ ["--font-sans" as string]: "var(--font-golos)" }}
     >
       <body className="min-h-full flex flex-col">
-        {process.env.NODE_ENV === "development" ? <FontPreviewPanel /> : null}
+        <FontPreviewPanel />
         {children}
       </body>
     </html>
