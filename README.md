@@ -11,9 +11,9 @@
 - Tailwind CSS v4 (`@tailwindcss/postcss`)
 - React
 - shadcn/ui (стиль radix-vega, компоненты Radix UI в `components/ui`, тема на CSS-переменных в `app/globals.css`)
-- leva (pmndrs) — панель «Шрифт» для переключения Golos Text / Inter (в том числе на GitHub Pages)
+- leva (pmndrs) — панель на сайте: шрифт (Inter / Golos Text), начертание меню и артикулов, толщина линий иконок поиска, входа и корзины
 - Embla Carousel (через компонент Carousel из shadcn/ui), lucide-react (иконки)
-- Шрифт Golos Text (`next/font/google`, кириллица)
+- Шрифт Inter (`next/font/google`, кириллица); Golos Text подключён для сравнения в панели
 - Деплой: GitHub Actions → GitHub Pages
 
 ## Запуск локально

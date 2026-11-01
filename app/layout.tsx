@@ -27,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="ru"
       className={cn("h-full antialiased font-sans", golos.variable, inter.variable)}
-      style={{ ["--font-sans" as string]: "var(--font-golos)" }}
+      style={{ ["--font-sans" as string]: "var(--font-inter)" }}
     >
       <body className="min-h-full flex flex-col">
         <FontPreviewPanel />
