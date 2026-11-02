@@ -84,7 +84,7 @@ export default function Header() {
           href="#"
           className={cn(
             logoClass,
-            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[calc(50%+0.25rem)] lg:static lg:translate-x-0 lg:-translate-y-1",
+            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[3px] lg:static lg:translate-x-0 lg:-translate-y-1",
           )}
           aria-label="лофтика — на главную"
         >
