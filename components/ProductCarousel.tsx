@@ -19,7 +19,7 @@ export default function ProductCarousel({
   items,
   title,
   href = "#",
-  itemClassName = "basis-7/10 pl-0.5 sm:basis-1/2 lg:basis-1/4",
+  itemClassName = "basis-7/10 pl-1 sm:basis-1/2 lg:basis-1/4",
   captionClassName,
   imageSizes = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 70vw",
   showAll = true,
@@ -49,7 +49,7 @@ export default function ProductCarousel({
         </div>
       </div>
 
-      <CarouselContent className="-ml-0.5">
+      <CarouselContent className="-ml-1">
         {items.map((p) => (
           <CarouselItem key={p.id} className={itemClassName}>
             <a href="#" className="group block">
