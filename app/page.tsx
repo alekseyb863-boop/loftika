@@ -44,7 +44,7 @@ export default function Home() {
               <h1 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight">Металлические ножки, опоры и каркасы</h1>
               <p className="text-muted-foreground mt-3 md:text-lg">Новая коллекция — минимализм и лофт</p>
             </div>
-            <Button asChild variant="outline" size="lg" className="self-start border-foreground bg-transparent px-5 text-sm hover:bg-foreground hover:text-background">
+            <Button asChild variant="outline" size="lg" className="self-start rounded-none border-foreground bg-transparent px-5 text-sm hover:bg-foreground hover:text-background">
               <a href="#nozhki">Смотреть коллекцию</a>
             </Button>
           </div>
@@ -73,7 +73,7 @@ export default function Home() {
           <div className="grid gap-0.5 md:grid-cols-2">
             {tiles.map((t) => (
               <a key={t.title} href="#" className="group block">
-                <Card className="gap-0 rounded-none bg-transparent py-0 shadow-none ring-0">
+                <Card className="gap-0 bg-transparent py-0 shadow-none ring-0">
                   <AspectRatio ratio={4 / 3} className="relative overflow-hidden bg-muted">
                     <Image
                       src={asset(t.image)}

@@ -13,7 +13,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const arrow = "static size-9 translate-none rounded-none";
+const arrow = "static size-9 translate-none";
 
 export default function ProductCarousel({
   items,
@@ -53,7 +53,7 @@ export default function ProductCarousel({
         {items.map((p) => (
           <CarouselItem key={p.id} className={itemClassName}>
             <a href="#" className="group block">
-              <Card className="gap-0 rounded-none bg-transparent py-0 shadow-none ring-0">
+              <Card className="gap-0 bg-transparent py-0 shadow-none ring-0">
                 <AspectRatio ratio={1} className="relative overflow-hidden bg-muted">
                   <Image
                     src={asset(p.image)}
