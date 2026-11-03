@@ -55,7 +55,8 @@ export default function Home() {
           <ProductCarousel
             items={legs}
             title="Категории"
-            itemClassName="basis-5/12 pl-5 lg:basis-1/6"
+            itemClassName="basis-5/12 pl-4.5 lg:basis-1/6"
+            contentClassName="-ml-4.5"
             captionClassName="text-center"
             imageSizes="(min-width: 1024px) 16vw, 42vw"
             showAll={false}
