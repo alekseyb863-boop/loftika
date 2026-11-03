@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { asset } from "@/lib/asset";
@@ -12,8 +14,17 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import type { EmblaOptionsType } from "embla-carousel";
 
 const arrow = "static size-9 translate-none";
+
+// Активный слайд встаёт не к краю экрана, а на отступ страницы (px-4 / md:px-8),
+// поэтому соседние слайды видны за краем и понятно, что ленту можно листать.
+const carouselOpts: EmblaOptionsType = {
+  align: () => 16,
+  slidesToScroll: 1,
+  breakpoints: { "(min-width: 768px)": { align: () => 32 } },
+};
 
 export default function ProductCarousel({
   items,
@@ -35,7 +46,7 @@ export default function ProductCarousel({
   showAll?: boolean;
 }) {
   return (
-    <Carousel opts={{ align: "start", slidesToScroll: 1 }} aria-label={title}>
+    <Carousel opts={carouselOpts} aria-label={title}>
       <div className="mb-5 flex items-center justify-between gap-4 px-4 md:px-8">
         <h2 className="text-xl font-medium tracking-tight md:text-2xl">
           {title}
