@@ -19,7 +19,7 @@ export default function ProductCarousel({
   items,
   title,
   href = "#",
-  itemClassName = "basis-7/10 pl-1 sm:basis-1/2 lg:basis-1/4",
+  itemClassName = "basis-7/10 pl-5 sm:basis-1/2 lg:basis-1/4",
   captionClassName,
   imageSizes = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 70vw",
   showAll = true,
@@ -35,10 +35,16 @@ export default function ProductCarousel({
   return (
     <Carousel opts={{ align: "start", slidesToScroll: 1 }} aria-label={title}>
       <div className="mb-5 flex items-center justify-between gap-4 px-4 md:px-8">
-        <h2 className="text-xl font-medium tracking-tight md:text-2xl">{title}</h2>
+        <h2 className="text-xl font-medium tracking-tight md:text-2xl">
+          {title}
+        </h2>
         <div className="-my-2 flex items-center gap-4">
           {showAll ? (
-            <Button asChild variant="link" className="hidden px-0 underline sm:inline-flex">
+            <Button
+              asChild
+              variant="link"
+              className="hidden px-0 underline sm:inline-flex"
+            >
               <a href={href}>Смотреть все</a>
             </Button>
           ) : null}
@@ -49,26 +55,35 @@ export default function ProductCarousel({
         </div>
       </div>
 
-      <CarouselContent className="-ml-1">
-        {items.map((p) => (
-          <CarouselItem key={p.id} className={itemClassName}>
-            <a href="#" className="group block">
-              <Card className="gap-0 bg-transparent py-0 shadow-none ring-0">
-                <AspectRatio ratio={1} className="relative overflow-hidden rounded-xl bg-muted">
-                  <Image
-                    src={asset(p.image)}
-                    alt={p.alt}
-                    fill
-                    sizes={imageSizes}
-                    className="aspect-square object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                </AspectRatio>
-                <CardContent className={cn("px-4 py-3 md:px-8", captionClassName)}>{p.article}</CardContent>
-              </Card>
-            </a>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
+      <div className="px-4 md:px-8">
+        <CarouselContent className="-ml-5">
+          {items.map((p) => (
+            <CarouselItem key={p.id} className={itemClassName}>
+              <a href="#" className="group block">
+                <Card className="gap-0 bg-transparent py-0 shadow-none ring-0">
+                  <AspectRatio
+                    ratio={1}
+                    className="relative overflow-hidden rounded-xl bg-muted"
+                  >
+                    <Image
+                      src={asset(p.image)}
+                      alt={p.alt}
+                      fill
+                      sizes={imageSizes}
+                      className="aspect-square object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </AspectRatio>
+                  <CardContent
+                    className={cn("px-4 py-3 md:px-8", captionClassName)}
+                  >
+                    {p.article}
+                  </CardContent>
+                </Card>
+              </a>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </div>
     </Carousel>
   );
 }

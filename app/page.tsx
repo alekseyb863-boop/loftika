@@ -55,7 +55,7 @@ export default function Home() {
           <ProductCarousel
             items={legs}
             title="Категории"
-            itemClassName="basis-5/12 pl-1 lg:basis-1/6"
+            itemClassName="basis-5/12 pl-5 lg:basis-1/6"
             captionClassName="text-center"
             imageSizes="(min-width: 1024px) 16vw, 42vw"
             showAll={false}
@@ -70,7 +70,7 @@ export default function Home() {
         {/* Каталог */}
         <section id="katalog" className="pt-14 md:pt-20">
           <h2 className="px-4 md:px-8 mb-5 text-xl md:text-2xl font-medium tracking-tight">Каталог</h2>
-          <div className="grid gap-1 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-2">
             {tiles.map((t) => (
               <a key={t.title} href="#" className="group block">
                 <Card className="gap-0 bg-transparent py-0 shadow-none ring-0">
