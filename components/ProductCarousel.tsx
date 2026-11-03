@@ -57,35 +57,39 @@ export default function ProductCarousel({
         </div>
       </div>
 
-      <div className="px-4 md:px-8">
-        <CarouselContent className={contentClassName}>
-          {items.map((p) => (
-            <CarouselItem key={p.id} className={itemClassName}>
-              <a href="#" className="group block">
-                <Card className="gap-0 bg-transparent py-0 shadow-none ring-0">
-                  <AspectRatio
-                    ratio={1}
-                    className="relative overflow-hidden rounded-xl bg-muted"
-                  >
-                    <Image
-                      src={asset(p.image)}
-                      alt={p.alt}
-                      fill
-                      sizes={imageSizes}
-                      className="aspect-square object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  </AspectRatio>
-                  <CardContent
-                    className={cn("px-4 py-3 md:px-8", captionClassName)}
-                  >
-                    {p.article}
-                  </CardContent>
-                </Card>
-              </a>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </div>
+      <CarouselContent className={contentClassName}>
+        {items.map((p) => (
+          <CarouselItem
+            key={p.id}
+            className={cn(
+              "first:ml-4 last:mr-4 md:first:ml-8 md:last:mr-8",
+              itemClassName,
+            )}
+          >
+            <a href="#" className="group block">
+              <Card className="gap-0 bg-transparent py-0 shadow-none ring-0">
+                <AspectRatio
+                  ratio={1}
+                  className="relative overflow-hidden rounded-xl bg-muted"
+                >
+                  <Image
+                    src={asset(p.image)}
+                    alt={p.alt}
+                    fill
+                    sizes={imageSizes}
+                    className="aspect-square object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </AspectRatio>
+                <CardContent
+                  className={cn("px-4 py-3 md:px-8", captionClassName)}
+                >
+                  {p.article}
+                </CardContent>
+              </Card>
+            </a>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
     </Carousel>
   );
 }
