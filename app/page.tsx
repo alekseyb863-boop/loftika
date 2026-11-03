@@ -74,7 +74,7 @@ export default function Home() {
             {tiles.map((t) => (
               <a key={t.title} href="#" className="group block">
                 <Card className="gap-0 bg-transparent py-0 shadow-none ring-0">
-                  <AspectRatio ratio={4 / 3} className="relative overflow-hidden bg-muted">
+                  <AspectRatio ratio={4 / 3} className="relative overflow-hidden rounded-xl bg-muted">
                     <Image
                       src={asset(t.image)}
                       alt={t.alt}
